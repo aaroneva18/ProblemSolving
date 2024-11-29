@@ -130,10 +130,12 @@
   <ItemGroup>
     <ClCompile Include="LeetCode.cpp" />
     <ClCompile Include="Palindrome_Number.cpp" />
+    <ClCompile Include="RomanNumbers.cpp" />
     <ClCompile Include="TwoSum.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Palindrome_Number.h" />
+    <ClInclude Include="RomanNumbers.h" />
     <ClInclude Include="TwoSum.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

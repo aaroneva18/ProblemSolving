@@ -24,12 +24,18 @@
     <ClCompile Include="Palindrome_Number.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RomanNumbers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TwoSum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Palindrome_Number.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RomanNumbers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
