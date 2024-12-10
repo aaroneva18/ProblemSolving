@@ -1,34 +1,56 @@
 #include "ArbolDeNavidad.h"
 
-void ArbolDeNavidad::init(int height) {
+void ArbolDeNavidad::init(int p_height) {
+	height = p_height;
 	treeIsActive = true;
-	int asteriscos = 1;
-	for (int i = 1; i < height; i++){
-		for (int j = height; j > i; j--) {
-			cout << " ";
-		}
-		for (int p = 0; p < asteriscos; p++) {
-			cout << "*";
-		}			
-		asteriscos += 2;
-		cout << "\n";
-	}
-	deployTree();
+	deployInferface();
 }
 
-void ArbolDeNavidad::deployTree() {
+void ArbolDeNavidad::deployInferface() {
 
-	cout << "Introduce una acción: " << "\n";
+	printTree();
+	deployText();
+	int accion;
+	cout << "Introduce un número: "; 
+	cin >> accion;
+	cout << "\n";
+
+	while (treeIsActive) {
+		switchTreeActions(accion);
+	}
+
+}
+
+void ArbolDeNavidad::printTree(){
+	int asteriscosCount = 1;
+
+	espacios.reserve(height);	
+	cout << "espacios: " << espacios.capacity() << "\n";
+	cout << "asteriscos: " << asteriscos.capacity() << "\n";
+
+	for (int i = 0; i < espacios.capacity(); i++) {
+		asteriscos.reserve(asteriscosCount);
+		for (int j = espacios.capacity(); j > i; j--) {
+			cout << " ";
+		}
+		for (int p = 0; p < asteriscos.capacity(); p++) {
+			cout << "*";
+		}
+		asteriscosCount += 2;
+		cout << "\n";
+	}
+}
+
+
+void ArbolDeNavidad::deployText() {
+
+	cout << "Elige una acción: " << "\n";
 	cout << "1: Imprimir hola" << "\n";
 	cout << "2: Imprimir adios" << "\n";
 	cout << "3: Parar" << "\n";
-
-	int accion = 0;
-	cin >> accion;
-	
-	switchTreeActions(accion);
-
 }
+
+
 
 void ArbolDeNavidad::switchTreeActions(int p_numAction) {
 	
@@ -40,11 +62,13 @@ void ArbolDeNavidad::switchTreeActions(int p_numAction) {
 	switch (p_numAction){
 
 	case 1:
-		cout << "Hola";
+		cout << "Hola" << "\n";
+		deployInferface();
 		break;
 
 	case 2:
-		cout << "Adios";
+		cout << "Adios" << "\n";
+		deployInferface();
 		break;
 
 	case 3:
