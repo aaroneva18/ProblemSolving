@@ -7,6 +7,6 @@ int main()
 
     ArbolDeNavidad arbol;
 
-    arbol.init(8);
+    
 }
 

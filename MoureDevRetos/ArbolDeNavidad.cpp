@@ -22,23 +22,26 @@ void ArbolDeNavidad::deployInferface() {
 }
 
 void ArbolDeNavidad::printTree(){
+	if(espacios.capacity() > height || espacios.size() > height) {
+		cout << "es mayor";
+		return;
+	}
 	int asteriscosCount = 1;
-
+	string space = " ";
 	espacios.reserve(height);	
-	cout << "espacios: " << espacios.capacity() << "\n";
-	cout << "asteriscos: " << asteriscos.capacity() << "\n";
-
-	for (int i = 0; i < espacios.capacity(); i++) {
-		asteriscos.reserve(asteriscosCount);
+	for (int i = 0; i < height; i++) {
 		for (int j = espacios.capacity(); j > i; j--) {
-			cout << " ";
+			cout << space;
 		}
-		for (int p = 0; p < asteriscos.capacity(); p++) {
+		for (int p = 0; p < asteriscosCount; p++) {
 			cout << "*";
 		}
 		asteriscosCount += 2;
 		cout << "\n";
+		espacios.push_back(space);
 	}
+	cout << "size" << espacios.size();
+	cout << "capacity" << espacios.capacity();
 }
 
 
@@ -56,7 +59,7 @@ void ArbolDeNavidad::switchTreeActions(int p_numAction) {
 	
 	if (p_numAction > 10) {
 		cout << "Acción no valida" << "\n";
-		return;
+		deployInferface();
 	}
 
 	switch (p_numAction){
